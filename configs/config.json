@@ -1,0 +1,32 @@
+{
+    "app": {
+        "name": "media-library",
+        "env": "development",
+        "port": 8080,
+        "debug": true
+    },
+    "log": {
+        "level": "debug",
+        "retention_days": {
+            "error": 30,
+            "info": 0
+        }
+    },
+    "db": {
+        "type": "mongodb",
+        "host": "localhost",
+        "port": 27017,
+        "name": "core",
+        "user": "mongo",
+        "password": "password",
+        "timeout": "5s",
+        "tlsEnabled": false,
+        "tlsCaFile": "",
+        "generateNoRetry": 10
+    },
+    "aws": {
+        "accessKey": "",
+        "secretKey": "",
+        "s3Endpoint": ""
+    }
+}
