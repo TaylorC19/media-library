@@ -1,4 +1,4 @@
-package main
+package router
 
 import (
 	"net/http"
@@ -8,10 +8,18 @@ import (
 
 var db = make(map[string]string)
 
-func setupRouter() *gin.Engine {
+func SetupRouter() *gin.Engine {
 	// Disable Console Color
 	// gin.DisableConsoleColor()
 	r := gin.Default()
+
+	r.LoadHTMLGlob("web/templates/*")
+
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"title": "Main website",
+		})
+	})
 
 	// Ping test
 	r.GET("/ping", func(c *gin.Context) {
@@ -65,10 +73,4 @@ func setupRouter() *gin.Engine {
 	})
 
 	return r
-}
-
-func main() {
-	r := setupRouter()
-	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
 }
