@@ -1,0 +1,55 @@
+[
+    {
+        "create": "users",
+        "validator": {
+            "$jsonSchema": {
+                "bsonType": "object",
+                "required": [
+                    "userId",
+                    "password",
+                    "access",
+                    "enable",
+                    "createdAt"
+                ],
+                "properties": {
+                    "_id": {
+                        "bsonType": "objectId"
+                    },
+                    "userId": {
+                        "bsonType": "string"
+                    },
+                    "password": {
+                        "bsonType": "string"
+                    },
+                    "access": {
+                        "bsonType": "array",
+                        "items": {
+                            "bsonType": "string"
+                        }
+                    },
+                    "enable": {
+                        "bsonType": "bool"
+                    },
+                    "createdAt": {
+                        "bsonType": "date"
+                    },
+                    "updatedAt": {
+                        "bsonType": "date"
+                    },
+                    "userAgent": {
+                        "bsonType": "string"
+                    },
+                    "expiredAt": {
+                        "bsonType": "date"
+                    },
+                    "token": {
+                        "bsonType": "string"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "validationLevel": "strict",
+        "validationAction": "error"
+    }
+]
