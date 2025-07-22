@@ -14,9 +14,10 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
 	r.LoadHTMLGlob("web/templates/*")
+	r.Static("/web", "./web")
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{
+		c.HTML(http.StatusOK, "index", gin.H{
 			"title": "Main website",
 		})
 	})
